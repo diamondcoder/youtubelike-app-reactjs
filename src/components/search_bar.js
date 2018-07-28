@@ -6,27 +6,33 @@ constructor(props){
 
   super(props);
 
-    this.state= {term: 'starting value'}
+    this.state= {term: ''}
 
 }
 render() {
 
 
   return (
-    <div>
+    <div className="search">
 
 
-    <input value={this.state.term} onChange={event=>this.setState({term:event.target.value})} />
-     
+    <input value={this.state.term} onChange={event=>this.onInputChange(event.target.value)} />
+
+
      </div>
   );
 
 }
 
-/*
-onInputChange(event){
-  console.log(event.target.value);
-}*/
+
+
+onInputChange(term){
+  this.setState({term});
+
+    this.props.setTerm(term);
+}
+
+
 
 }
 
